@@ -17,6 +17,8 @@ body {
     padding: 10px 0;
     font-size: 14px;
     height: 70px;
+    display: flex;
+    align-items: center;
 }
 
 .container {
@@ -48,9 +50,13 @@ nav {
     color: #1a365d;
 }
 
+/* إصلاح: لجعل القائمة أفقية */
 .nav-links {
     display: flex;
     list-style: none;
+    flex-direction: row; /* مهم: أفقية */
+    flex-wrap: nowrap;
+    gap: 15px;
 }
 
 .nav-links li {
@@ -62,6 +68,7 @@ nav {
     color: #333;
     font-weight: 500;
     transition: color 0.3s;
+    white-space: nowrap; /* منع كسر النص */
 }
 
 .nav-links a:hover {
@@ -69,6 +76,7 @@ nav {
     border-bottom: 2px solid #1976d2;
 }
 
+/* إصلاح: لجعل المنتجات جنب بعض */
 .products-grid {
     display: flex;
     justify-content: center;
@@ -80,11 +88,12 @@ nav {
     flex: 0 1 250px;
 }
 
+/* إصلاح: لمنع الهيرو من أخذ مساحة كبيرة */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1574258495973-f010dfbb5371?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
     background-size: cover;
     background-position: center;
-    height: 80vh;
+    height: 60vh; /* قللنا من 80vh إلى 60vh */
     display: flex;
     align-items: center;
     color: white;
@@ -155,6 +164,7 @@ nav {
     margin: 0 auto;
 }
 
+/* إصلاح: لجعل الميزات جنب بعض */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -585,138 +595,77 @@ footer {
     font-size: 14px;
 }
 
+/* إضافة: لجعل عناصر الفوتر جنب بعض */
+.footer-col {
+    display: inline-block;
+    vertical-align: top;
+    width: 23%;
+    margin-right: 2%;
+}
+
+.footer-col:last-child {
+    margin-right: 0;
+}
+
 @media (max-width: 992px) {
     .contact-wrapper {
         grid-template-columns: 1fr;
     }
-}
-
-/* Media Queries للجوال - مثل الكود المعطى بالضبط */
-@media (max-width: 768px) {
-    body {
-        padding-top: 0; /* نلغي الحل الغلط */
+    
+    .footer-col {
+        width: 48%;
+        margin-right: 2%;
+        margin-bottom: 30px;
     }
-
-    .container {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 10px;
-        text-align: center;
-    }
-
-    .logo {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-    }
-
-    .nav-links li {
+    
+    .footer-col:nth-child(2n) {
         margin-right: 0;
     }
+}
 
+@media (max-width: 768px) {
+    /* إصلاح: لجعل القائمة أفقية حتى على الجوال */
+    .nav-links {
+        display: flex !important;
+        flex-direction: row; /* أبقيناها أفقية */
+        flex-wrap: wrap; /* إذا كانت طويلة تكسر لسطر ثاني */
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .nav-links li {
+        margin-right: 0;
+        margin-bottom: 0; /* إلغاء الهامش السفلي */
+        width: auto; /* إلغاء العرض الكامل */
+    }
+    
     .nav-links a {
+        display: inline-block;
         padding: 8px 12px;
-        font-size: 1rem;
+        font-size: 14px;
+        width: auto;
     }
-
-    .hero {
-        height: calc(100vh - 180px);
-        padding-top: 180px;
-        background-attachment: scroll;
-    }
-
-    .hero-content {
-        padding: 0 15px;
-    }
-
+    
     .hero h1 {
-        font-size: 2rem;
-        margin-top: 0;
-        line-height: 1.3;
-        padding: 0 10px;
+        font-size: 36px;
     }
-
+    
     .hero p {
-        font-size: 1.1rem;
-        line-height: 1.5;
-        padding: 0 10px;
+        font-size: 18px;
     }
-
-    /* تحسين الميزات */
-    .features {
+    
+    .container {
         flex-direction: column;
         text-align: center;
-        padding: 50px 5%;
     }
-
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    
+    .contact-form-side,
+    .contact-info-side {
+        padding: 25px;
     }
-
-    .feature-card {
-        padding: 20px 15px;
-    }
-
-    /* تحسين المنتجات */
-    .products-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        padding: 0 10px;
-    }
-
-    .products-grid .product-card {
-        flex: 0 1 calc(50% - 15px);
-        min-width: 150px;
-    }
-
-    .product-card {
-        width: 100%;
-        height: 270px;
-        margin: 0;
-    }
-
-    .product-img {
-        height: 150px;
-    }
-
-    .product-card .product-img img {
-        height: 150px;
-    }
-
-    .product-info {
-        padding: 15px 10px;
-    }
-
-    .product-info h3 {
-        font-size: 15px;
-    }
-
-    .product-info p {
-        font-size: 13px;
-    }
-
-    /* تحسين الـ offers */
-    .offers-content {
-        grid-template-columns: 1fr;
-    }
-
-    .offers {
-        padding: 50px 15px;
-    }
-
-    .offers h2 {
-        font-size: 26px;
-    }
-
-    /* تحسين الـ typewriter للجوال */
+    
+    /* هنا التعديل الي طلبته */
     .typewriter {
         font-size: 18px;
         font-weight: bold;
@@ -730,7 +679,7 @@ footer {
         line-height: 1.4;
         padding: 0 10px;
     }
-
+    
     @keyframes fadeInUp {
         0% {
             opacity: 0;
@@ -741,113 +690,65 @@ footer {
             transform: translateY(0);
         }
     }
-
-    /* تحسين الـ card hover على الجوال */
-    .product-card:hover .card-inner {
-        transform: none;
-    }
-
-    .product-card:active .card-inner {
-        transform: rotateY(180deg);
-    }
-
-    /* تحسين اتصل بنا */
-    .contact-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .contact-form {
-        padding: 30px 20px;
-    }
-
-    .contact-form-side,
-    .contact-info-side {
-        padding: 25px 20px;
-    }
-
-    .contact-wrapper {
-        margin: 0 15px;
-    }
-
-    /* تحسين الفوتر */
-    .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .footer-col h3::after {
-        right: 50%;
-        transform: translateX(50%);
-    }
-
-    .social-contact {
-        justify-content: center;
-    }
-
-    .copyright {
-        padding: 20px 0 0;
-    }
-}
-
-/* Media Queries للهواتف الصغيرة جداً */
-@media (max-width: 480px) {
-    .hero {
-        height: 45vh;
-        padding-top: 150px;
-    }
-
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .nav-links li {
+    
+    /* على الجوال، القائمة تبقى أفقية */
+    .footer-col {
         width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
     }
-
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
-
+    
+    /* على الجوال، المنتجات تكون جنب بعض (2 في السطر) */
     .products-grid .product-card {
-        flex: 0 1 100%;
-        max-width: 250px;
+        flex: 0 1 calc(50% - 15px);
     }
-
-    .typewriter {
-        font-size: 16px;
-    }
-
-    .contact-wrapper {
-        margin: 0 10px;
-    }
-
-    .contact-form-side,
-    .contact-info-side {
-        padding: 20px 15px;
-    }
-}
-
-/* منع تكبير النص على iOS */
-@media screen and (max-width: 768px) {
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea {
-        font-size: 16px !important;
+    
+    /* الميزات تبقى جنب بعض (2 في السطر) */
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
 
 .contact-wrapper > div {
     width: 100%;
+}
+
+/* إضافة: لمنع المسافات الكبيرة بين الأقسام */
+section {
+    margin-bottom: 20px; /* قللنا المسافة */
+    scroll-margin-top: 80px;
+}
+
+.features,
+.products,
+.offers,
+.contact-section {
+    padding: 60px 0; /* قللنا الـ padding */
+    margin-bottom: 0;
+}
+
+/* ضبط الهيرو ليأخذ مساحة أقل */
+.hero {
+    height: 50vh; /* قللنا أكثر */
+    min-height: 400px;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    section {
+        margin-bottom: 10px;
+        scroll-margin-top: 60px;
+    }
+    
+    .features,
+    .products,
+    .offers,
+    .contact-section {
+        padding: 40px 0;
+    }
+    
+    .hero {
+        height: 40vh;
+        min-height: 300px;
+    }
 }
