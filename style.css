@@ -298,13 +298,14 @@ nav {
     overflow: hidden;
     border-right: 1px solid white;
     width: 0;
+    max-width: fit-content;
     display: inline-block;
     animation: typing 3s steps(25, end) forwards, blink .7s infinite;
 }
 
 @keyframes typing {
     from { width: 0; }
-    to   { width: 100%; }
+    to   { width: fit-content; }
 }
 
 @keyframes blink {
@@ -631,3 +632,4 @@ footer {
 .contact-wrapper > div {
     width: 100%;
 }
+
