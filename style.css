@@ -585,33 +585,243 @@ footer {
     font-size: 14px;
 }
 
-@media (max-width: 992px) {
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
-}
-
+/* Media Queries للهواتف المحمولة */
 @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+    
+    .logo {
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+    
     .nav-links {
-        display: none;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .nav-links li {
+        margin-right: 15px;
+        margin-bottom: 5px;
+    }
+    
+    .nav-links a {
+        font-size: 14px;
+    }
+    
+    .hero {
+        height: 50vh;
+        padding: 20px 0;
     }
     
     .hero h1 {
-        font-size: 36px;
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+    
+    .hero p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+    
+    .features,
+    .products,
+    .offers,
+    .contact-section {
+        padding: 50px 0;
+    }
+    
+    .section-title h2 {
+        font-size: 28px;
+    }
+    
+    .products-grid {
+        gap: 20px;
+    }
+    
+    .products-grid .product-card {
+        flex: 0 1 calc(50% - 20px);
+        min-width: 140px;
+    }
+    
+    .product-card {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    
+    .product-card .product-img {
+        height: 150px;
+    }
+    
+    .product-card .product-img img {
+        height: 150px;
+    }
+    
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .contact-form-side,
+    .contact-info-side {
+        padding: 30px 20px;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-col h3::after {
+        right: 50%;
+        transform: translateX(50%);
+    }
+    
+    .social-contact {
+        justify-content: center;
+    }
+    
+    .typewriter {
+        font-size: 20px;
+        animation: typing 2s steps(20) forwards, blink .7s infinite;
+    }
+    
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 20ch; }
+    }
+    
+    .card-back .btn {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+    
+    .contact-wrapper > div {
+        width: 100%;
+    }
+}
+
+/* Media Queries للهواتف الصغيرة جداً */
+@media (max-width: 480px) {
+    .top-bar {
+        font-size: 12px;
+        height: 50px;
+        padding: 5px 0;
+    }
+    
+    .hero {
+        height: 40vh;
+    }
+    
+    .hero h1 {
+        font-size: 24px;
+    }
+    
+    .hero p {
+        font-size: 14px;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .nav-links li {
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .products-grid .product-card {
+        flex: 0 1 100%;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .feature-card {
+        padding: 20px 15px;
+    }
+    
+    .contact-form-side h3,
+    .contact-info-side h3 {
+        font-size: 20px;
+    }
+    
+    .form-control {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    
+    .typewriter {
+        font-size: 16px;
+    }
+    
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 16ch; }
+    }
+    
+    .copyright {
+        font-size: 12px;
+        padding-top: 20px;
+    }
+    
+    .contact-details li {
+        font-size: 14px;
+    }
+    
+    .working-hours {
+        padding: 15px;
+    }
+}
+
+/* Media Query للأجهزة اللوحية */
+@media (max-width: 992px) and (min-width: 769px) {
+    .container {
+        width: 95%;
+    }
+    
+    .products-grid .product-card {
+        flex: 0 1 calc(33.333% - 20px);
+    }
+    
+    .hero h1 {
+        font-size: 40px;
     }
     
     .hero p {
         font-size: 18px;
     }
     
-    .container {
-        flex-direction: column;
-        text-align: center;
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
     }
-    
-    .contact-form-side,
-    .contact-info-side {
-        padding: 25px;
+}
+
+/* منع تكبير النص على iOS */
+@media screen and (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        font-size: 16px !important;
     }
 }
 
