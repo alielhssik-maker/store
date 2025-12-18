@@ -584,379 +584,47 @@ footer {
     color: #bbb;
     font-size: 14px;
 }
+@media (max-width: 992px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
 
-/* Media Queries للجوال */
 @media (max-width: 768px) {
-    /* تحسين النافبار */
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
     .container {
         flex-direction: column;
-        padding: 10px 0;
+        text-align: center;
     }
-    
-    .logo {
-        margin-bottom: 10px;
-        font-size: 22px;
+
+    .contact-form-side,
+    .contact-info-side {
+        padding: 25px;
     }
-    
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        padding: 0 10px;
-    }
-    
-    .nav-links li {
-        margin-right: 15px;
-        margin-bottom: 5px;
-    }
-    
-    .nav-links a {
-        font-size: 14px;
-    }
-    
-    /* إصلاح الهيرو سيكشن */
+}
+
+@media (max-width: 576px) {
     .hero {
-        height: 50vh;
-        padding: 20px 0;
-        background-attachment: scroll;
+        height: 60vh;
     }
-    
-    .hero-content {
-        padding: 0 15px;
-        width: 100%;
-    }
-    
+
     .hero h1 {
         font-size: 28px;
-        margin-bottom: 15px;
-        line-height: 1.3;
-        word-break: break-word;
-        overflow-wrap: break-word;
-        white-space: normal;
-        text-align: center;
     }
-    
+
     .hero p {
         font-size: 16px;
-        margin-bottom: 20px;
-        line-height: 1.5;
-        word-break: break-word;
-        overflow-wrap: break-word;
-        white-space: normal;
-        text-align: center;
-        padding: 0 10px;
-    }
-    
-    .btn {
-        padding: 10px 25px;
-        font-size: 14px;
-    }
-    
-    /* تحسين الأقسام */
-    .features,
-    .products,
-    .offers,
-    .contact-section {
-        padding: 50px 0;
-    }
-    
-    .section-title {
-        margin-bottom: 30px;
-    }
-    
-    .section-title h2 {
-        font-size: 26px;
-        margin-bottom: 10px;
-        padding: 0 15px;
-    }
-    
-    .section-title p {
-        font-size: 15px;
-        padding: 0 20px;
-    }
-    
-    /* تحسين شبكة الميزات */
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 15px;
-    }
-    
-    .feature-card {
-        padding: 20px 15px;
-    }
-    
-    /* إصلاح مشكلة الـ typewriter في بطاقات المنتجات */
-    .card-back {
-        padding: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-    
-    .typewriter {
-        font-size: 18px;
-        font-weight: bold;
-        white-space: normal;
-        overflow: visible;
-        border-right: none;
-        width: 100% !important;
-        animation: fadeInUp 1s ease-in-out forwards;
-        opacity: 0;
-        text-align: center;
-        line-height: 1.4;
-        padding: 0 10px;
-    }
-    
-    @keyframes fadeInUp {
-        0% {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    /* إزالة تأثير الـ blink على الجوال */
-    @keyframes blink {
-        50% { border-color: transparent; }
-    }
-    
-    /* تحسين الـ hover على الجوال */
-    .product-card:hover {
-        transform: none;
-    }
-    
-    .product-card:hover .card-inner {
-        transform: none;
-    }
-    
-    /* إضافة تأثير للنقر بدلاً من الـ hover */
-    .product-card:active .card-inner {
-        transform: rotateY(180deg);
-    }
-    
-    /* تحسين شبكة المنتجات */
-    .products-grid {
-        gap: 15px;
-        padding: 0 15px;
-        justify-content: center;
-    }
-    
-    .products-grid .product-card {
-        flex: 0 1 calc(50% - 15px);
-        min-width: 150px;
-        max-width: 180px;
-    }
-    
-    .product-card {
-        width: 100%;
-        height: 270px;
-        margin: 0;
-    }
-    
-    .product-img {
-        height: 140px;
-    }
-    
-    .product-card .product-img img {
-        height: 140px;
-    }
-    
-    .product-info {
-        padding: 15px 10px;
-    }
-    
-    .product-info h3 {
-        font-size: 15px;
-        margin-bottom: 8px;
-        line-height: 1.3;
-    }
-    
-    .product-info p {
-        font-size: 13px;
-        margin-bottom: 10px;
-        line-height: 1.4;
-    }
-    
-    .price {
-        font-size: 16px;
-    }
-    
-    /* تحسين قسم العروض */
-    .offers {
-        padding: 40px 15px;
-    }
-    
-    .offers h2 {
-        font-size: 26px;
-        margin-bottom: 15px;
-        padding: 0 10px;
-    }
-    
-    .offers p {
-        font-size: 16px;
-        line-height: 1.5;
-        padding: 0 10px;
-    }
-    
-    /* تحسين الخطوط تحت الأقسام */
-    .featured-products::after,
-    .medical-glasses::after,
-    .sun-glasses::after {
-        width: 90%;
-        margin: 40px auto 0;
-    }
-    
-    /* تحسين قسم اتصل بنا */
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-        gap: 0;
-        margin: 0 15px;
-        border-radius: 10px;
-    }
-    
-    .contact-form-side,
-    .contact-info-side {
-        padding: 25px 20px;
-    }
-    
-    .contact-form-side h3,
-    .contact-info-side h3 {
-        font-size: 22px;
-    }
-    
-    .form-control {
-        padding: 12px;
-        font-size: 15px;
-    }
-    
-    /* تحسين الفوتر */
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
-        padding: 0 20px;
-    }
-    
-    .footer-col h3::after {
-        right: 50%;
-        transform: translateX(50%);
-    }
-    
-    .social-contact {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    
-    .copyright {
-        padding: 20px 15px 0;
-        font-size: 13px;
-        text-align: center;
-        width: 100%;
-    }
-}
-
-/* Media Queries للهواتف الصغيرة جداً */
-@media (max-width: 480px) {
-    .hero {
-        height: 45vh;
-    }
-    
-    .hero h1 {
-        font-size: 24px;
-        padding: 0 10px;
-    }
-    
-    .hero p {
-        font-size: 15px;
-        padding: 0 10px;
-    }
-    
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
-    
-    .nav-links li {
-        margin-right: 0;
-        width: 100%;
-        text-align: center;
-    }
-    
-    .typewriter {
-        font-size: 16px;
-    }
-    
-    .products-grid .product-card {
-        flex: 0 1 100%;
-        max-width: 200px;
-    }
-    
-    .product-card {
-        height: 250px;
-    }
-    
-    .product-img {
-        height: 130px;
-    }
-    
-    .product-card .product-img img {
-        height: 130px;
-    }
-    
-    .product-info h3 {
-        font-size: 14px;
-    }
-    
-    .product-info p {
-        font-size: 12px;
-    }
-    
-    .contact-wrapper {
-        margin: 0 10px;
-    }
-    
-    .contact-form-side,
-    .contact-info-side {
-        padding: 20px 15px;
-    }
-}
-
-/* إصلاح للشاشات المتوسطة */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .hero h1 {
-        font-size: 40px;
-    }
-    
-    .hero p {
-        font-size: 18px;
-    }
-    
-    .products-grid .product-card {
-        flex: 0 1 calc(33.333% - 30px);
-    }
-    
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-}
-
-/* منع تكبير النص على iOS */
-@media screen and (max-width: 768px) {
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea {
-        font-size: 16px !important;
     }
 }
 
